@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+  </head>
+
+  <body>
+    <h1>Confirmation</h1>
+    <p>Are you sure you want to delete this todo?</p>
+
+    <ul>
+      <li>Description: {{.todo.Text}}</li>
+      <li>Status: {{.todo.Status}}</li>
+      <li>Created at: {{.todo.CreatedAt}}</li>
+    </ul>
+
+    <form action="/delete/{{.todo.Id}}" method="post">
+      <p><input type="submit" value="Delete"></p>
+      <p><a href="/">Back to home</a></p>
+    </form>
+  </body>
+
+</html>

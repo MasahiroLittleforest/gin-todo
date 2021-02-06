@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+  </head>
+
+  <body>
+    <h2>{{.todo.Text}}</h2>
+
+    <form action="/update/{{.todo.ID}}" method="post">
+      <p>Description
+        <input type="text" name="text" size="30" value="{{.todo.Text}}">
+      </p>
+      <p>Status
+        <select name="status">
+          {{if eq .todo.Status "New"}}
+          <option value="New" selected>New</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Done">Done</option>
+          {{else if eq .todo.Status "In Progress"}}
+          <option value="New">New</option>
+          <option value="In Progress" selected>In Progress</option>
+          <option value="Done">Done</option>
+          {{else}}
+          <option value="New">New</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Done" selected>Done</option>
+          {{end}}
+        </select>
+      </p>
+      <p><input type="submit" value="Send"></p>
+    </form>
+  </body>
+
+</html>
